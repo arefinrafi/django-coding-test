@@ -34,8 +34,13 @@ class VariantView(BaseVariantView, ListView):
 
 
 class VariantCreateView(BaseVariantView, CreateView):
-    pass
+    form_class = VariantForm
+    model = Variant
+    template_name = 'variants/create.html'
 
 
 class VariantEditView(BaseVariantView, UpdateView):
     pk_url_kwarg = 'id'
+    form_class = VariantForm
+    model = Variant
+    success_url = '/product/variants'
